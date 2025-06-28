@@ -1,23 +1,29 @@
-tb();
+module tb();
 
 logic clk;
 logic rst;
 logic [29:0] div_output_45, div_output_90, div_output_135, div_output_180;
-integer     f1, f2, f3, f4;
-logic [29:0] add_out_45_5, add_out_43_3;
+integer     f1, f2, f3, f4,f11;
+logic [29:0] add_out_45;
 logic [9:0]   pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
   pixel9, pixel10,pixel11, pixel12, pixel13, pixel14, pixel15,
   pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22,
   pixel23, pixel24, pixel25;
+logic [29:0] add_out_90, add_out_135, add_out_180;
+logic data_ready;
+logic [18:0] image_BRAM_addr;
+logic x;
 
 
-  logic data_ready;
+  logic [19:0] count;
 
-  conv #(`include 45)(
+  conv mc(clk, rst, 
     pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
     pixel9, pixel10,pixel11, pixel12, pixel13, pixel14, pixel15,
     pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22,
-    pixel23, pixel24, pixel25,add_out_45_5, add_out_43_3,clk, rst, data_ready
+    pixel23, pixel24, pixel25,
+    add_out_45_5, add_out_90, add_out_135, add_out_180,
+    data_ready, image_BRAM_addr
 
 
     );
@@ -25,26 +31,26 @@ logic [9:0]   pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
 
   logic    [7:0]   imagepixel [266255:0];
   
-
+  integer i,j;
  logic  [18:0]  image_addr1, image_addr2, image_addr3, image_addr4, image_addr5;
     
-    always @ (image_addr)
+    always @ (image_BRAM_addr)
      begin
        //with 3×3, 5×5, or 13×13 filters, you may pad the memory so that edge cases don't need special logic. 516 adds 4 extra pixels per row
-        image_addr1     <= image_addr;
-        image_addr2     <= image_addr + 516;
-        image_addr3     <= image_addr + 1032;
-        image_addr4     <= image_addr + 1548;
-        image_addr5     <= image_addr + 2064;        
+        image_addr1     <= image_BRAM_addr;
+        image_addr2     <= image_BRAM_addr + 516;
+        image_addr3     <= image_BRAM_addr + 1032;
+        image_addr4     <= image_BRAM_addr + 1548;
+        image_addr5     <= image_BRAM_addr + 2064;        
      end 
     initial
     begin
         for (i=0; i<=266256; i=i+1)
             imagepixel[i] = 8'b00000000;
-        $readmemb("/home/yassss-369/iiitb/project/45_implementation/", imagepixel); //Assuming name of txt is data.txt
+        $readmemb("/home/sharan_math/gabor/COE_files/image_txt/image516.txt", imagepixel); //Assuming name of txt is data.txt
     end  
 
-    forever #5 clk =  ~clk;
+    always #5 clk =  ~clk;
 
 
     always @ (negedge clk)
@@ -84,10 +90,10 @@ logic [9:0]   pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
     
   initial
   begin
-    f1 = $fopen("output_45.txt", "w");
-    f2 = $fopen("output_90.txt", "w");
-    f3 = $fopen("output_135.txt", "w");
-    f4 = $fopen("output_180.txt", "w");
+    f1 = $fopen("/home/sharan_math/gabor/iverilog/fil_image45.txt", "w");
+    f2 = $fopen("/home/sharan_math/gabor/iverilog/fil_image90.txt", "w");
+    f3 = $fopen("/home/sharan_math/gabor/iverilog/fil_image135.txt", "w");
+    f4 = $fopen("/home/sharan_math/gabor/iverilog/fil_image180.txt", "w");
 
      count = 0;
         clk = 0;
@@ -132,8 +138,8 @@ logic [9:0]   pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
     // Allow simulation time
     initial begin
 //        #75807559;
-     $dumpfile("tb_parallel_design.vcd");
-    $dumpvars(0, tb_parallel_design); // 0 means top-level module (tb_parallel_design)
+     $dumpfile("tb.vcd");
+    $dumpvars(0, tb); // 0 means top-level module (tb_parallel_design)
 
     end
 
