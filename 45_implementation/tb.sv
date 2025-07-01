@@ -4,12 +4,12 @@ logic clk;
 logic rst;
 logic [29:0] div_output_45, div_output_90, div_output_135, div_output_180;
 integer     f1, f2, f3, f4,f11;
-logic [29:0] add_out_45;
+logic [33:0] add_out_45;
 logic [9:0]   pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
   pixel9, pixel10,pixel11, pixel12, pixel13, pixel14, pixel15,
   pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22,
   pixel23, pixel24, pixel25;
-logic [29:0] add_out_90, add_out_135, add_out_180;
+logic [33:0] add_out_90, add_out_135, add_out_180;
 logic data_ready;
 logic [18:0] image_BRAM_addr;
 logic x;
@@ -17,13 +17,43 @@ logic x;
 
   logic [19:0] count;
 
-  conv mc(clk, rst, 
-    pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8,
-    pixel9, pixel10,pixel11, pixel12, pixel13, pixel14, pixel15,
-    pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22,
-    pixel23, pixel24, pixel25,
-    add_out_45_5, add_out_90, add_out_135, add_out_180,
-    data_ready, image_BRAM_addr
+  conv mc( 
+    .clk            (clk),
+    .rst            (rst),
+
+    .pixel1         (pixel1),
+    .pixel2         (pixel2),
+    .pixel3         (pixel3),
+    .pixel4         (pixel4),
+    .pixel5         (pixel5),
+    .pixel6         (pixel6),
+    .pixel7         (pixel7),
+    .pixel8         (pixel8),
+    .pixel9         (pixel9),
+    .pixel10        (pixel10),
+    .pixel11        (pixel11),
+    .pixel12        (pixel12),
+    .pixel13        (pixel13),
+    .pixel14        (pixel14),
+    .pixel15        (pixel15),
+    .pixel16        (pixel16),
+    .pixel17        (pixel17),
+    .pixel18        (pixel18),
+    .pixel19        (pixel19),
+    .pixel20        (pixel20),
+    .pixel21        (pixel21),
+    .pixel22        (pixel22),
+    .pixel23        (pixel23),
+    .pixel24        (pixel24),
+    .pixel25        (pixel25),
+
+    .add_out_45_5   (add_out_45),
+    .add_out_90     (add_out_90),
+    .add_out_135    (add_out_135),
+    .add_out_180    (add_out_180),
+
+    .data_ready     (data_ready),
+    .image_BRAM_addr(image_BRAM_addr)
 
 
     );
@@ -47,7 +77,7 @@ logic x;
     begin
         for (i=0; i<=266256; i=i+1)
             imagepixel[i] = 8'b00000000;
-        $readmemb("/home/sharan_math/gabor/COE_files/image_txt/image516.txt", imagepixel); //Assuming name of txt is data.txt
+        $readmemb("/home/yassss-369/iiitb/gabor_optimizations/files/image516.txt", imagepixel); //Assuming name of txt is data.txt
     end  
 
     always #5 clk =  ~clk;
@@ -90,17 +120,17 @@ logic x;
     
   initial
   begin
-    f1 = $fopen("/home/sharan_math/gabor/iverilog/fil_image45.txt", "w");
-    f2 = $fopen("/home/sharan_math/gabor/iverilog/fil_image90.txt", "w");
-    f3 = $fopen("/home/sharan_math/gabor/iverilog/fil_image135.txt", "w");
-    f4 = $fopen("/home/sharan_math/gabor/iverilog/fil_image180.txt", "w");
+    f1 = $fopen("/home/yassss-369/iiitb/gabor_optimizations/files/fil_image45.txt", "w");
+    f2 = $fopen("/home/yassss-369/iiitb/gabor_optimizations/files/fil_image90.txt", "w");
+    f3 = $fopen("/home/yassss-369/iiitb/gabor_optimizations/files/fil_image135.txt", "w");
+    f4 = $fopen("/home/yassss-369/iiitb/gabor_optimizations/files/fil_image180.txt", "w");
 
      count = 0;
         clk = 0;
         // Reset the system
-        rst = 0;
-        #100;
         rst = 1;
+        #100;
+        rst = 0;
 
      #20;
         $display("Memory contents:");

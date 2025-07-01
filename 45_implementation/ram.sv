@@ -14,9 +14,9 @@ module ram #(
     logic [9:0] column_number;
     logic [18:0] row_number;
     parameter  image_width = 512;
-
-    always @ (posedge clock or posedge reset)
-    if (reset)
+    logic [3:0] state;
+    always @ (posedge clk or posedge rst)begin
+    if (rst)
      begin
          pixel_addr         <= 0;
          row_number         <= 0;
@@ -50,7 +50,7 @@ module ram #(
         default : state     <= 0;     
         endcase 
       end
-
+    end
 
  endmodule
 

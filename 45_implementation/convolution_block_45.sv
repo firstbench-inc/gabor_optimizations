@@ -17,7 +17,8 @@ module convolution_block_45 #(
   parameter  result_add_width = 26,
   parameter  BRAM_width = 516,
   parameter  BRAM_height = 266256,
-  parameter  kernel_size = 5
+  parameter  kernel_size = 5,
+  parameter  sum_width = 12
 )
 (
   input logic [(coeff_int_mult1 + coeff_dec_mult1 -1):0] coeff1,
@@ -31,20 +32,29 @@ module convolution_block_45 #(
   
 
 
-  output logic    [(coeff_int_mult1 + coeff_dec_mult1 + pixel_int_width + pixel_dec_width -1):0]  result5_1,
-  output logic    [(coeff_int_mult2 + coeff_dec_mult2 + pixel_int_width + pixel_dec_width -1):0]  result5_2,
-  output logic    [(coeff_int_mult3 + coeff_dec_mult3 + pixel_int_width + pixel_dec_width -1):0]  result5_3,
-  output logic    [(coeff_int_mult4 + coeff_dec_mult4 + pixel_int_width + pixel_dec_width -1):0]  result5_4,
-  output logic    [(coeff_int_mult5 + coeff_dec_mult5 + pixel_int_width + pixel_dec_width -1):0]  result5_5
+  output logic    [(coeff_int_mult1 + coeff_dec_mult1 + sum_width -1):0]  result5_1,
+  output logic    [(coeff_int_mult2 + coeff_dec_mult2 + sum_width -1):0]  result5_2,
+  output logic    [(coeff_int_mult3 + coeff_dec_mult3 + sum_width -1):0]  result5_3,
+  output logic    [(coeff_int_mult4 + coeff_dec_mult4 + sum_width -1):0]  result5_4,
+  output logic    [(coeff_int_mult5 + coeff_dec_mult5 + sum_width -1):0]  result5_5
   );
+  logic [sum_width - 1:0] sum1, sum2, sum3, sum4, sum5;
+
+  always_comb begin 
+     sum1 = pixel1 + pixel25;
+     sum2 = pixel2 + pixel24 + pixel6 + pixel20;
+     sum3 = pixel3 + pixel23 + pixel7 + pixel19 + pixel11 + pixel15;
+     sum4 = pixel4 + pixel5 + pixel21 + pixel22 + pixel8 + pixel16 + pixel10 + pixel18;
+     sum5 = pixel9 + pixel13 + pixel17;
+end
 
 
 
 
-  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, pixel_int_width, pixel_dec_width, 1) M1(.ina(coeff1),.inb(pixel1+pixel25),.out(result5_1));
-  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, pixel_int_width, pixel_dec_width, 1) M2(.ina(coeff2),.inb(pixel2+pixel24+pixel+pixel6+pixel20),.out(result5_2));
-  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, pixel_int_width, pixel_dec_width, 1) M3(.ina(coeff3),.inb(pixel3+pixel23+pixel7+pixel19+pixel11+pixel15),.out(result5_3));
-  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, pixel_int_width, pixel_dec_width, 1) M4(.ina(coeff4),.inb(pixel4+pixel5+pixel21+pixel22+pixel8+pixel16+pixel10+pixel18),.out(result5_4));
-  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, pixel_int_width, pixel_dec_width, 1) M5(.ina(coeff5),.inb(pixel9+pixel13+pixel17),.out(result5_5));
+  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, sum_width, 1) M1(.ina(coeff1),.inb(sum1),.out(result5_1));
+  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, sum_width, 1) M2(.ina(coeff2),.inb(sum2),.out(result5_2));
+  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, sum_width, 1) M3(.ina(coeff3),.inb(sum3),.out(result5_3));
+  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, sum_width, 1) M4(.ina(coeff4),.inb(sum4),.out(result5_4));
+  fxp_mul #(coeff_int_mult1, coeff_dec_mult1, sum_width, 1) M5(.ina(coeff5),.inb(sum5),.out(result5_5));
 
   endmodule
