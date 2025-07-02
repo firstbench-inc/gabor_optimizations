@@ -28,12 +28,12 @@ def calculate_ssim(image1, image2):
 
 
 # Read images first
-img1 = read_image_txt("../files/fil_image135.txt")
-img2 = read_image_coe("../files/image_fixed_135.coe")
+img1 = read_image_txt("../files/fil_image90.txt")
+img2 = read_image_coe("../files/image_fixed_90.coe")
 
 # Save images for visual check (optional)
-save_image("../images/135_txt.jpg", img1)
-save_image("../images/135_coe.jpg", img2)
+save_image("../images/90_txt.jpg", img1)
+save_image("../images/90_coe.jpg", img2)
 
 # Compute SSIM
 print(calculate_ssim(img1, img2))

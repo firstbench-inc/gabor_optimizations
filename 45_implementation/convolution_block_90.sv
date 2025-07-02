@@ -66,8 +66,8 @@ logic [sum_width - 1:0] group1_sum, group2_sum, group3_sum, group4_sum, group5_s
 assign group1_sum = pixel1 + pixel2 + pixel3 + pixel23 + pixel24 + pixel25; // -8262
 assign group2_sum = pixel4 + pixel5 + pixel21 + pixel22; // 9392
 assign group3_sum = pixel6 + pixel7 + pixel19 + pixel20; // 31444
-assign group4_sum = pixel8 + pixel9 + pixel17 + pixel18; // 47591
-assign group5_sum = pixel10 + pixel11 + pixel12 + pixel13 + pixel14 + pixel15 + pixel16; // 62131
+assign group4_sum = pixel8 + pixel9 +pixel10+pixel16+ pixel17 + pixel18; // 47591
+assign group5_sum =   pixel11 + pixel12 + pixel13 + pixel14 + pixel15; // 62131
   // Result wires
     // Level 1: coeff1 = -8262
  
