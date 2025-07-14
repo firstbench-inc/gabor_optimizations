@@ -28,12 +28,31 @@ def calculate_ssim(image1, image2):
 
 
 # Read images first
-img1 = read_image_txt("../files/fil_image90.txt")
-img2 = read_image_coe("../files/image_fixed_90.coe")
+img1 = read_image_txt("../files/fil_image45.txt")
+img2 = read_image_coe("../files/image_fixed_45.coe")
+
+img3 = read_image_txt("../files/fil_image90_1.txt")
+img4 = read_image_coe("../files/image_fixed_90.coe")
+
+img5 = read_image_txt("../files/fil_image135_1.txt")
+img6 = read_image_coe("../files/image_fixed_135.coe")
+
+img7 = read_image_txt("../files/fil_image180.txt")
+img8 = read_image_coe("../files/image_fixed_180.coe")
+
 
 # Save images for visual check (optional)
-save_image("../images/90_txt.jpg", img1)
-save_image("../images/90_coe.jpg", img2)
+save_image("../images/45_txt.jpg", img1)
+save_image("../images/45_coe.jpg", img2)
+save_image("../images/45_txt.jpg", img3)
+save_image("../images/45_coe.jpg", img4)
+save_image("../images/45_txt.jpg", img5)
+save_image("../images/45_coe.jpg", img6)
+save_image("../images/45_txt.jpg", img7)
+save_image("../images/45_coe.jpg", img8)
 
 # Compute SSIM
 print(calculate_ssim(img1, img2))
+print(calculate_ssim(img3, img4))
+print(calculate_ssim(img5, img6))
+print(calculate_ssim(img7, img8))

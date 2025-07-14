@@ -13,7 +13,10 @@ logic [33:0] add_out_90, add_out_135, add_out_180;
 logic data_ready;
 logic [18:0] image_BRAM_addr;
 logic x;
-
+reg [7:0] dbg_output_45;
+reg [7:0] dbg_output_90;
+reg [7:0] dbg_output_135;
+reg [7:0] dbg_output_180;
 
   logic [19:0] count;
 
@@ -149,6 +152,13 @@ logic x;
     begin
     #5
         count = count + 1;
+
+        dbg_output_45  = div_output_45[7:0];
+    dbg_output_90  = div_output_90[7:0];
+    dbg_output_135 = div_output_135[7:0];
+    dbg_output_180 = div_output_180[7:0];
+
+
         $fwrite(f1, "%b\n", div_output_45[7:0]);
         $fwrite(f2, "%b\n", div_output_90[7:0]);
         $fwrite(f3, "%b\n", div_output_135[7:0]);

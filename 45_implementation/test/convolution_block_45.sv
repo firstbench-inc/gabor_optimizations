@@ -44,10 +44,10 @@ module convolution_block_45 #(
      sum1 = pixel1 + pixel25;
      sum2 = pixel2 + pixel24 + pixel6 + pixel20;
      sum3 = pixel3 + pixel23 + pixel7 + pixel19 + pixel11 + pixel15;
-     
+     sum4 = pixel4 + pixel5 + pixel21 + pixel22 + pixel8 + pixel16 + pixel10 + pixel18+pixel12+pixel14;
      sum5 = pixel9 + pixel13 + pixel17;
 end
-assign sum4 = pixel4 + pixel5 + pixel21 + pixel22 + pixel8 + pixel16 + pixel10 + pixel18+pixel12+pixel14;
+
 
 
 
@@ -58,3 +58,22 @@ assign sum4 = pixel4 + pixel5 + pixel21 + pixel22 + pixel8 + pixel16 + pixel10 +
   fxp_mul #(coeff_int_mult1, coeff_dec_mult1, sum_width, 1) M5(.ina(coeff5),.inb(sum5),.out(result5_5));
 
   endmodule
+
+  module fxp_mul # (
+    parameter IN_IWA = 2,
+    parameter IN_FWA = 6,
+    //parameter IN_IWB = 8,
+   // parameter IN_FWB = 0,
+    parameter sum_width = 12,
+    parameter ROUND= 1
+)(
+  input  logic [IN_IWA+IN_FWA-1:0] ina,
+    input  logic [sum_width-1:0] inb,
+    output logic [IN_IWA+IN_FWA+ sum_width - 1:0] out
+);
+
+assign out =  ($signed(ina) * $signed(inb)); 
+
+endmodule
+
+

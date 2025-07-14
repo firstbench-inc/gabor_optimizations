@@ -1,0 +1,269 @@
+16. Printing statistics.
+
+=== $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_135 ===
+
+   Number of wires:                980
+   Number of wire bits:           1455
+   Number of public wires:          40
+   Number of public wire bits:     515
+   Number of ports:                 35
+   Number of port bits:            455
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                695
+     $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      5
+     AOI21_X1                       80
+     FA_X1                         125
+     HA_X1                         185
+     INV_X1                        125
+     NAND2_X1                       15
+     NAND3_X1                       15
+     OAI21_X1                       55
+     XOR2_X1                        90
+
+   Area for cell type $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul is unknown!
+
+   Chip area for module '$paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_135': 1405.810000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_45 ===
+
+   Number of wires:                876
+   Number of wire bits:           1351
+   Number of public wires:          40
+   Number of public wire bits:     515
+   Number of ports:                 35
+   Number of port bits:            455
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                623
+     $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      5
+     AOI21_X1                       72
+     FA_X1                         113
+     HA_X1                         165
+     INV_X1                        113
+     NAND2_X1                       13
+     NAND3_X1                       13
+     OAI21_X1                       49
+     XOR2_X1                        80
+
+   Area for cell type $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul is unknown!
+
+   Chip area for module '$paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_45': 1260.574000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_90 ===
+
+   Number of wires:                980
+   Number of wire bits:           1455
+   Number of public wires:          40
+   Number of public wire bits:     515
+   Number of ports:                 35
+   Number of port bits:            455
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                695
+     $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      5
+     AOI21_X1                       80
+     FA_X1                         125
+     HA_X1                         185
+     INV_X1                        125
+     NAND2_X1                       15
+     NAND3_X1                       15
+     OAI21_X1                       55
+     XOR2_X1                        90
+
+   Area for cell type $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul is unknown!
+
+   Chip area for module '$paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_90': 1405.810000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== $paramod$53c91bd20ca2cf4864b505b04846f5551bb16561\convolution_block_180 ===
+
+   Number of wires:               1118
+   Number of wire bits:           1483
+   Number of public wires:          34
+   Number of public wire bits:     399
+   Number of ports:                 31
+   Number of port bits:            363
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                777
+     $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      3
+     AOI21_X1                       88
+     FA_X1                         135
+     HA_X1                         211
+     INV_X1                        135
+     NAND2_X1                       19
+     NAND3_X1                       19
+     OAI21_X1                       63
+     XOR2_X1                       104
+
+   Area for cell type $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul is unknown!
+
+   Chip area for module '$paramod$53c91bd20ca2cf4864b505b04846f5551bb16561\convolution_block_180': 1569.666000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul ===
+
+   Number of wires:               1925
+   Number of wire bits:           1980
+   Number of public wires:           3
+   Number of public wire bits:      58
+   Number of ports:                  3
+   Number of port bits:             58
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1106
+     AND2_X1                       209
+     AOI21_X1                        8
+     AOI221_X1                       5
+     FA_X1                         781
+     HA_X1                          64
+     INV_X1                         12
+     NAND2_X1                        5
+     NOR2_X1                         1
+     OAI21_X1                        8
+     XOR2_X1                        13
+
+   Chip area for module '$paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul': 3773.476000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== conv ===
+
+   Number of wires:               2488
+   Number of wire bits:           4320
+   Number of public wires:          87
+   Number of public wire bits:    1787
+   Number of ports:                 33
+   Number of port bits:            383
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1828
+     $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_135      1
+     $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_45      1
+     $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_90      1
+     $paramod$53c91bd20ca2cf4864b505b04846f5551bb16561\convolution_block_180      1
+     AND2_X1                        70
+     AND3_X1                         3
+     AND4_X1                         3
+     AOI211_X1                      24
+     AOI21_X1                      132
+     AOI221_X1                      53
+     DFFR_X1                       136
+     FA_X1                         214
+     HA_X1                         424
+     INV_X1                        290
+     NAND2_X1                      107
+     NAND3_X1                       10
+     NAND4_X1                        7
+     NOR2_X1                        20
+     OAI211_X1                       3
+     OAI21_X1                      112
+     OR2_X1                          3
+     XNOR2_X1                       18
+     XOR2_X1                       194
+     ram                             1
+
+   Area for cell type \ram is unknown!
+   Area for cell type $paramod$53c91bd20ca2cf4864b505b04846f5551bb16561\convolution_block_180 is unknown!
+   Area for cell type $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_135 is unknown!
+   Area for cell type $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_90 is unknown!
+   Area for cell type $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_45 is unknown!
+
+   Chip area for module '\conv': 3842.636000
+     of which used for sequential elements: 723.520000 (18.83%)
+
+=== ram ===
+
+   Number of wires:               1173
+   Number of wire bits:           1224
+   Number of public wires:           7
+   Number of public wire bits:      55
+   Number of ports:                  4
+   Number of port bits:             22
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                760
+     AND2_X1                         4
+     AND3_X1                         4
+     AOI21_X1                       35
+     AOI221_X1                       4
+     AOI22_X1                       21
+     DFFR_X1                        50
+     DFF_X1                          1
+     FA_X1                         342
+     HA_X1                          65
+     INV_X1                        121
+     NAND2_X1                       27
+     NAND3_X1                        5
+     NOR2_X1                         6
+     NOR4_X1                         6
+     OAI21_X1                       45
+     OAI22_X1                        1
+     OR2_X1                          2
+     OR4_X1                          1
+     XNOR2_X1                        8
+     XOR2_X1                        12
+
+   Chip area for module '\ram': 2168.964000
+     of which used for sequential elements: 994.042000 (45.83%)
+
+=== design hierarchy ===
+
+   conv                              1
+     $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_135      1
+       $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      5
+     $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_45      1
+       $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      5
+     $paramod$117c8aad53524082c528cf0803537aaafe9f2b8e\convolution_block_90      1
+       $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      5
+     $paramod$53c91bd20ca2cf4864b505b04846f5551bb16561\convolution_block_180      1
+       $paramod$dd0ec0b192b6aa8a049a41d040df276c6735f19b\fxp_mul      3
+     ram                             1
+
+   Number of wires:              42265
+   Number of wire bits:          46928
+   Number of public wires:         302
+   Number of public wire bits:    4830
+   Number of ports:                227
+   Number of port bits:           3177
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              25263
+     AND2_X1                      3836
+     AND3_X1                         7
+     AND4_X1                         3
+     AOI211_X1                      24
+     AOI21_X1                      631
+     AOI221_X1                     147
+     AOI22_X1                       21
+     DFFR_X1                       186
+     DFF_X1                          1
+     FA_X1                       15112
+     HA_X1                        2387
+     INV_X1                       1125
+     NAND2_X1                      286
+     NAND3_X1                       77
+     NAND4_X1                        7
+     NOR2_X1                        44
+     NOR4_X1                         6
+     OAI211_X1                       3
+     OAI21_X1                      523
+     OAI22_X1                        1
+     OR2_X1                          5
+     OR4_X1                          1
+     XNOR2_X1                       26
+     XOR2_X1                       804
+
+   Chip area for top module '\conv': 79576.028000
+     of which used for sequential elements: 994.042000 (1.25%)
+

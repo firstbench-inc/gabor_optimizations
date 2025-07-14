@@ -2,15 +2,15 @@
 // Fully completed conv.sv module with all angle mappings
 module conv #(
   parameter  coeff1_int_mult1 = 2,
-  parameter  coeff1_dec_mult1 = 15,
+  parameter  coeff1_dec_mult1 = 10,
   parameter  coeff1_int_mult2 = 2,
-  parameter  coeff1_dec_mult2 = 15,
+  parameter  coeff1_dec_mult2 = 14,
   parameter  coeff1_int_mult3 = 2,
-  parameter  coeff1_dec_mult3 = 15,
+  parameter  coeff1_dec_mult3 = 8,
   parameter  coeff1_int_mult4 = 2,
-  parameter  coeff1_dec_mult4 = 15,
+  parameter  coeff1_dec_mult4 = 9,
   parameter  coeff1_int_mult5 = 2,
-  parameter  coeff1_dec_mult5 = 15,
+  parameter  coeff1_dec_mult5 = 9,
   
   parameter  coeff2_int_mult1 = 2,
   parameter  coeff2_dec_mult1 = 15,
@@ -84,13 +84,13 @@ logic signed [30:0] result180temp1, result180temp2,result180temp3;
 
   // Coefficients for 90, 135, 180
 
-  logic signed [(coeff1_int_mult1 + coeff1_dec_mult1 + sum_width -1):0]
+  logic signed [(coeff2_int_mult2 + coeff2_dec_mult2 + sum_width -1):0]
   result90_1, result90_2, result90_3, result90_4, result90_5;
 
-  logic signed [(coeff1_int_mult1 + coeff1_dec_mult1 + sum_width -1):0]
+  logic signed [(coeff3_int_mult3 + coeff3_dec_mult3 + sum_width -1):0]
   result135_1, result135_2, result135_3, result135_4, result135_5;
 
-  logic signed [(coeff1_int_mult1 + coeff1_dec_mult1 + sum_width -1):0]
+  logic signed [(coeff4_int_mult2 + coeff4_dec_mult3 + sum_width -1):0]
   result180_1, result180_2, result180_3;
 
 
@@ -192,7 +192,7 @@ always @(posedge clk )
           .pixel11(pixel11), .pixel12(pixel12), .pixel13(pixel13), .pixel14(pixel14), .pixel15(pixel15),
           .pixel16(pixel16), .pixel17(pixel17), .pixel18(pixel18), .pixel19(pixel19), .pixel20(pixel20),
           .pixel21(pixel21), .pixel22(pixel22), .pixel23(pixel23), .pixel24(pixel24), .pixel25(pixel25),
-          .coeff1(coeff180[0][17:(17-(coeff4_int_mult1 + coeff4_dec_mult1-1))]), .coeff2(coeff180[1][17:(17-(coeff4_int_mult2 + coeff4_dec_mult2-1))]), .coeff3(coeff180[2][17:(17-(coeff4_int_mult3 + coeff4_dec_mult3-1))]),
+          .coeff1(coeff180[0][17:(17-(17+2-1))]), .coeff2(coeff180[1][17:(17-(coeff4_int_mult2 + coeff4_dec_mult2-1))]), .coeff3(coeff180[2][17:(17-(coeff4_int_mult3 + coeff4_dec_mult3-1))]),
           .result1(result180_1), .result2(result180_2), .result3(result180_3)
           );
           ram image_BRAM (
