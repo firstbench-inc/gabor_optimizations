@@ -1,4 +1,56 @@
 
+//==============================================================================
+//
+// Company:          IIIT-B
+//
+// Engineer:         Yash Prasad
+//
+// Create Date:      16.08.2025 19:04:13
+//
+// Design Name:      Gabor Filter 
+//
+// Module Name:      conv_unit
+//
+// Project Name:     Gabor Filter Optimization 
+//
+// Target Devices:   
+//
+// Tool Versions:   
+//
+// Description:
+// This module implements a highly parameterized convolution unit designed for
+// image processing applications. It processes a 5x5 pixel window and applies
+// four different convolution kernels simultaneously to detect features at
+// various orientations (45, 90, 135, and 180 degrees).
+//
+// The core functionality includes:
+//  - Taking a 25-pixel input stream representing a 5x5 kernel window.
+//  - Applying four distinct sets of hardcoded coefficients for each orientation.
+//  - Performing fixed-point multiplication and accumulation for each kernel.
+//  - Outputting the four resulting convolution sums.
+//
+// The design is structured with dedicated sub-modules for each directional
+// convolution ('convolution_block_*') which optimize calculations by grouping
+// pixels that share common coefficients before multiplication.
+// A BRAM controller is instantiated to generate read addresses for the source
+// image pixels.
+//
+// Parameters allow for extensive customization of data widths (pixel and
+// coefficient), BRAM dimensions, and kernel size.
+//
+// Dependencies:
+//  - convolution_block_45.v
+//  - convolution_block_90.v
+//  - convolution_block_135.v
+//  - convolution_block_180.v
+//  - fxp_mul.v
+//  - BRAM_read_control.v
+//
+// Revision:
+// Revision 1.00 - File Created
+// Additional Comments:
+//
+//==============================================================================
 module conv_unit
 #(parameter  coeff1_int_mult1 = 2,
   parameter  coeff1_dec_mult1 = 15,
